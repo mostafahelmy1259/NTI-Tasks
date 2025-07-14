@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Day 1 ==> Task</title>
+  <title>Day 1</title>
   <link href="css/bootstrap.css" rel="stylesheet" >
 </head>
 <body class="bg-success">

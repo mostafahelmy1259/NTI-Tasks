@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Task 1 Intro</title>
+    <title>Day 1 ==> Task</title>
     <link href="css/bootstrap.css" rel="stylesheet" >
     <style>
         body {

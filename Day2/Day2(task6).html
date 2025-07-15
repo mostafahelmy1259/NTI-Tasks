@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Task 6</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                direction: rtl;
+                text-align: center;
+                background-color: #f8f8f8;
+                margin: 0;
+                padding: 20px;
+            }
+
+            nav {
+                background-color: #4a148c;
+                padding: 10px;
+                color: white;
+            }
+
+            nav a {
+                color: white;
+                margin: 0 10px;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            h1 {
+                color: #4a148c;
+            }
+
+            input, button {
+                padding: 10px;
+                margin: 10px;
+                font-size: 16px;
+            }
+
+            .message {
+                margin-top: 20px;
+                padding: 15px;
+                background-color: #c8e6c9;
+                border-radius: 10px;
+                color: #2e7d32;
+                font-size: 20px;
+                display: inline-block;
+                min-width: 200px;
+            }
+
+            table {
+                margin: 30px auto;
+                border-collapse: collapse;
+                width: 60%;
+            }
+
+            table, th, td {
+                border: 1px solid #4a148c;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            th {
+                background-color: #4a148c;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="#">الرئيسية</a>
+            <a href="#">حول</a>
+            <a href="#">اتصل بنا</a>
+        </nav>
+
+        <h1 id="welcome">مرحبًا بك في صفحتنا!</h1>
+        
+        <form onsubmit="return showMessage()">
+            <label>ادخل اسمك:</label><br>
+            <input type="text" id="nameInput" required><br>
+            <button type="submit">أرسل</button>
+        </form>
+        
+        <div id="output"></div>
+        
+        <table>
+            <tr>
+            <th>المادة</th>
+            <th>الدرجة</th>
+            </tr>
+            <tr>
+            <td>عربي</td>
+            <td>95</td>
+            </tr>
+            <tr>
+            <td>فيزياء</td>
+            <td>90</td>
+            </tr>
+            <tr>
+            <td>كيمياء</td>
+            <td>88</td>
+            </tr>
+            <tr>
+            <td>اللغة الانجليزية</td>
+            <td>92</td>
+            </tr>
+            <tr>
+            <td>أحياء</td>
+            <td>85</td>
+            </tr>
+        </table>
+        
+        <script>
+            function showMessage() {
+                const name = document.getElementById('nameInput').value;
+                const outputDiv = document.getElementById('output');
+                
+                document.getElementById('welcome').innerText = `مرحبًا ${name} في صفحتنا!`;
+                
+                outputDiv.innerHTML = `<div class="message">مرحبًا بك يا ${name}! سعداء بوجودك هنا 😊</div>`;
+                return false; // لمنع إعادة تحميل الصفحة
+            }
+        </script>   
+    </body>
+</html>

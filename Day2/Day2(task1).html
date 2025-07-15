@@ -1,0 +1,590 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', monospace;
+            background: #0a0a0a;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 255, 198, 0.2) 0%, transparent 50%);
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+            color: #00ff88;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 
+                0 0 50px rgba(0, 255, 136, 0.3),
+                inset 0 0 50px rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ff88, #ff0088, #8800ff, #0088ff, #00ff88);
+            background-size: 400% 400%;
+            animation: borderGlow 4s ease infinite;
+            z-index: -1;
+            border-radius: 20px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 
+                0 0 30px rgba(255, 0, 136, 0.4),
+                inset 0 0 30px rgba(255, 0, 136, 0.1);
+            border: 1px solid #ff0088;
+            position: relative;
+        }
+
+        .form-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff0088, transparent);
+            animation: scanLine 2s linear infinite;
+        }
+
+        @keyframes scanLine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #00ffff;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        /*input[type="password"]*/
+        select,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #8800ff;
+            border-radius: 8px;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #00ff88;
+            font-family: 'Orbitron', monospace;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 0 20px rgba(136, 0, 255, 0.3),
+                inset 0 0 20px rgba(136, 0, 255, 0.1);
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.6),
+                inset 0 0 20px rgba(0, 255, 255, 0.2);
+            transform: translateY(-2px);
+            color: #00ffff;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #ff0088, #8800ff);
+            color: #ffffff;
+            padding: 15px 40px;
+            border: 2px solid #ff0088;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 'Orbitron', monospace;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 30px rgba(255, 0, 136, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(255, 0, 136, 0.8);
+            background: linear-gradient(45deg, #8800ff, #ff0088);
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #00ffff;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 
+                0 0 10px #00ffff,
+                0 0 20px #00ffff,
+                0 0 30px #00ffff;
+            animation: titlePulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titlePulse {
+            from { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; }
+            to { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff; }
+        }
+
+        .tech-list {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 
+                0 0 30px rgba(0, 136, 255, 0.4),
+                inset 0 0 30px rgba(0, 136, 255, 0.1);
+            border: 1px solid #0088ff;
+            position: relative;
+        }
+
+        .tech-list::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 136, 255, 0.1) 50%, transparent 70%);
+            animation: techGlow 3s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes techGlow {
+            0% { transform: translateX(-100%) skewX(-15deg); }
+            100% { transform: translateX(200%) skewX(-15deg); }
+        }
+
+        .tech-list ol {
+            margin-left: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-list li {
+            margin-bottom: 15px;
+            color: #0088ff;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 10px 15px;
+            background: rgba(0, 136, 255, 0.1);
+            border-left: 4px solid #0088ff;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px #0088ff;
+        }
+
+        .tech-list li:hover {
+            transform: translateX(10px);
+            background: rgba(0, 136, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 136, 255, 0.5);
+        }
+
+        .shopping-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 
+                0 0 30px rgba(255, 136, 0, 0.4),
+                inset 0 0 30px rgba(255, 136, 0, 0.1);
+            border: 1px solid #ff8800;
+            position: relative;
+        }
+
+        .shopping-section::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ff8800, transparent);
+            animation: horizontalScan 3s linear infinite;
+        }
+
+        @keyframes horizontalScan {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .shopping-list {
+            margin-left: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .shopping-list li {
+            margin-bottom: 15px;
+            color: #ff8800;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 10px 15px;
+            background: rgba(255, 136, 0, 0.1);
+            border-left: 4px solid #ff8800;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px #ff8800;
+            position: relative;
+        }
+
+        .shopping-list li:hover {
+            transform: translateX(10px);
+            background: rgba(255, 136, 0, 0.2);
+            box-shadow: 0 0 20px rgba(255, 136, 0, 0.5);
+        }
+
+        .shopping-list li::before {
+            content: "⚡";
+            margin-right: 10px;
+            color: #ffff00;
+            text-shadow: 0 0 10px #ffff00;
+        }
+
+        .duplicate-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(0, 255, 136, 0.3);
+            position: relative;
+        }
+
+        .duplicate-section::before {
+            content: 'DUPLICATE DATA';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #0a0a0a;
+            color: #00ff88;
+            padding: 0 10px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(255, 0, 136, 0.3);
+            position: relative;
+        }
+
+        .table-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(255, 0, 136, 0.1) 0%, 
+                rgba(136, 0, 255, 0.1) 25%, 
+                rgba(0, 136, 255, 0.1) 50%, 
+                rgba(0, 255, 136, 0.1) 75%, 
+                rgba(255, 0, 136, 0.1) 100%);
+            background-size: 400% 400%;
+            animation: tableGlow 6s ease infinite;
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        @keyframes tableGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        th {
+            background: linear-gradient(45deg, #ff0088, #8800ff);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            border-bottom: 2px solid #00ffff;
+        }
+
+        td {
+            padding: 18px;
+            text-align: center;
+            color: #00ff88;
+            font-size: 16px;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px #00ff88;
+        }
+
+        tr:nth-child(even) td {
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        tr:hover td {
+            background: rgba(0, 255, 255, 0.1);
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+            transform: scale(1.02);
+        }
+
+        /* Matrix-style background effect */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+            opacity: 0.1;
+        }
+
+        .matrix-char {
+            position: absolute;
+            color: #00ff88;
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            animation: matrixFall linear infinite;
+        }
+
+        @keyframes matrixFall {
+            0% { transform: translateY(-100vh); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                border-radius: 15px;
+            }
+            
+            body {
+                padding: 10px;
+            }
+
+            .section-title {
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+
+            th, td {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            label {
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+        }
+
+        /* Glitch effect for form validation */
+        .glitch {
+            animation: glitch 0.3s ease-in-out;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-bg" id="matrixBg"></div>
+    
+    <div class="container">
+        <!-- Contact Form Section -->
+        <div class="form-section">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Enter your message here..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">send data</button>
+            </form>
+        </div>
+
+        
+        <!-- Student Grades Table -->
+        <div class="content-section">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Subject</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Anna</td>
+                            <td>Frensh</td>
+                            <td>95</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Salma</td>
+                            <td>Physics</td>
+                            <td>88</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Samer</td>
+                            <td>Biology</td>
+                            <td>75</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+
+        <!-- Step-by-Step Guide to Learn Programming -->
+        <div class="content-section">
+            <h2 class="section-title">Step-by-Step Guide to Learn Programming:</h2>
+            <div class="tech-list">
+                <ol>
+                    <li>Understand the Basics</li>
+                    <li>Choose One Language to Start With</li>
+                    <li>Learn Programming Fundamentals</li>
+                    <li>Practice with Mini Projects</li>
+                    <li>Understand Data Structures & Algorithms</li>
+                    <li>Learn Version Control</li>
+                    <li>Work on Real Projects</li>
+                    <li>Learn Debugging & Testing</li>
+                    <li>Study Code from Others</li>
+                    <li>Keep Learning & Building</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

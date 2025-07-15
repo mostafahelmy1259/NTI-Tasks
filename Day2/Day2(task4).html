@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 4</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            }
+
+            .page-wrapper {
+            width: 800px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+
+            .card {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
+            transition: all 0.5s ease-in-out;
+            }
+
+            .card:hover {
+            background-color: #e3f2fd;
+            transform: scale(1.01);
+            }
+
+            .card h3 {
+            margin-top: 0;
+            text-align: center;
+            }
+
+            .form-control {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            }
+
+            .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: white;
+            border: 2px solid #007bff;
+            color: #007bff;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+            }
+
+            .btn:hover {
+            background-color: #007bff;
+            color: white;
+            }
+
+            table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            }
+
+            table, th, td {
+            border: 1px solid #ddd;
+            }
+
+            th, td {
+            padding: 8px;
+            text-align: left;
+            }
+
+            ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+            }
+
+            ul li {
+            margin-bottom: 6px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="page-wrapper">
+            <div class="card">
+                <h3>Form Card</h3>
+                <form>
+                <input type="text" class="form-control" placeholder="Name">
+                <input type="email" class="form-control" placeholder="Email">
+                <input type="password" class="form-control" placeholder="Password">
+                <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Table Card</h3>
+                <table>
+                    <thead><tr><th>Name</th><th>Email</th></tr></thead>
+                    <tbody>
+                        <tr><td>Ahmed</td><td>ahmed@mail.com</td></tr>
+                        <tr><td>Sara</td><td>sara@mail.com</td></tr>
+                        <tr><td>Alaa</td><td>alaa.139@mail.com</td></tr>
+                        <tr><td>Anna</td><td>anna.helmy@mail.com</td></tr>
+                    </tbody>
+                </table>
+                <button class="btn">More</button>
+            </div>
+
+            <div class="card">
+                <h3>List Card</h3>
+                <ul>
+                <li>🔹 Learn HTML</li>
+                <li>🔹 Learn CSS</li>
+                <li>🔹 Learn JavaScript</li>
+                </ul>
+                <button class="btn">Explore</button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -97,10 +97,10 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($errors)) {
           foreach ($uploaded as $file) {
             $extension = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
-            $new_name = uniqid('img_', true) . '.' . $extension;
-            $upload_path = "../uploads/" . $new_name;
-            $en_upload_path = base64_encode("uploads/" . $new_name);
-            move_uploaded_file($file["tmp"], $upload_path);
+            $new_name = $file["name"];
+            $upload_path = "uploads/" . $new_name;
+            $en_upload_path = base64_encode($upload_path);
+            move_uploaded_file($file["tmp"], "../" . $upload_path);
 
             // Update admin table to set img_path for the logged-in user
             $stmt = mysqli_prepare($conn, "UPDATE admin SET img_path = ? WHERE email = ?");

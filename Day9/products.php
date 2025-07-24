@@ -99,7 +99,8 @@
             $extension = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
             $new_name = uniqid('img_', true) . '.' . $extension;
             $upload_path = "../uploads/" . $new_name;
-            move_uploaded_file($file["tmp"], $upload_path);
+            $en_upload_path = base64_encode($upload_path);
+            move_uploaded_file($file["tmp"], $en_upload_path);
 
             // Update admin table to set img_path for the logged-in user
             $stmt = mysqli_prepare($conn, "UPDATE admin SET img_path = ? WHERE email = ?");
@@ -110,12 +111,12 @@
             }
 
             echo "<div class='card m-2 mb-3 bg-secondary' style='width: 18rem; display:inline-block;'>";
-            echo "<img src='$upload_path' class='img-thumbnail card-img-top mt-3' width='200'>";
+            $de_upload_path = base64_decode($en_upload_path);
+            echo "<img src='$de_upload_path' class='img-thumbnail card-img-top mt-3' width='200'>";
             echo "<div class='card-body'>";
             echo "<p class='text-white'>" . htmlspecialchars($product_name) . "</p>";
             echo "<p class='card-text text-white'>" . htmlspecialchars($description) . "</p>";
             echo "<p class='card-text text-white '>" . 'added by <a href="#" class="text-decoration-underline text-dark">' . htmlspecialchars($email) . '</a>' . '</p>';
-            echo "</div></div>";
           }
         }
         ?>

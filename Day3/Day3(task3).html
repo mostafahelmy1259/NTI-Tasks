@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 3</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body class="bg-info-subtle">
+        <div class="container py-5">
+            <h2 class="text-center mb-4">Sample Data Table</h2>
+            <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Samer Mohammed</td><td>samer2004@example.com</td><td>Admin</td></tr>
+                <tr><td>2</td><td>Eman Abdalla</td><td>eman1258@example.com</td><td>User</td></tr>
+                <tr><td>3</td><td>Anna Jacob</td><td>anna.jacob@example.com</td><td>Editor</td></tr>
+            </tbody>
+            </table>
+
+            <h4 class="mt-5">Register</h4>
+            <form class="row g-3 needs-validation" novalidate id="registerForm">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="nid" class="form-label">National ID</label>
+                <input type="text" class="form-control" id="nid" required>
+                <div class="invalid-feedback">National ID is required.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">Please provide a valid email.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone" required>
+                <div class="invalid-feedback">Phone number is required.</div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#formModal">
+                More Options
+                </button>
+            </div>
+            </form>
+        </div>
+
+        <div class="modal fade" id="formModal" tabindex="-1">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Form Info</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                Fill in the form and submit to see your data here.
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <script src="js/bootstrap.bundle.js"></script>
+    </body>
+</html>

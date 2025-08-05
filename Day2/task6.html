@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My sixth page</title>
+        <style>
+           *{
+                box-sizing: border-box;
+            }
+
+            body{
+                background: linear-gradient(45deg, #3f0, #af0);
+                min-height: 100vh;
+                padding: 50px 10px;
+                margin: 0;
+                color: #333;
+            }
+
+            .first-ul{
+                list-style-type: lower-roman;
+            }
+
+            .first-ol{
+                list-style-type: upper-latin;
+            }
+
+            .second-ul{
+                list-style-type: circle;
+            } 
+
+            body{
+            background: linear-gradient(45deg, hsl(0, 82%, 73%), hsl(0, 14%, 58%));
+            min-height: 100vh;
+            padding: 50px 0;
+            margin: 0;
+            }
+
+            .log-table{
+                width: fit-content;
+                margin:  auto;
+                padding: 50px;
+                background-color: aqua;
+            }
+
+            .log-table tr td, .log-table tr th{
+                padding: 10px;
+
+            }
+
+            body{
+            background: linear-gradient(45deg, #1abc9c, #2ecc71);
+            min-height: 100vh;
+            padding: 50px 0;
+            margin: 0;
+            background-color: #f2f2f2;
+            }
+
+            input, textarea, button, select{
+                display: block;
+            }
+
+            .log-form{
+                width: fit-content;
+                margin: 0 auto;
+                padding: 50px;
+                background-color: antiquewhite;
+            }
+
+            .log-form input, .log-form textarea, .log-form button, .log-form select{
+                width: 100%;
+                margin: 10px;
+                padding: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <form 
+            action="submit.php" 
+            method="post" 
+            class="log-form">
+
+                <!-- start the first input with its label -->
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="fullname" class="form-input"/>
+                <!-- end the first input with its label -->
+
+                <!-- start the second input with its label -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-input"/>
+                <!-- end the second input with its label -->
+
+                <!-- start the select with its label -->
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" class="form-input">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <!-- end the select input with its label -->
+
+                <!-- start the textarea with its label -->
+                <label for="message">Message:</label>
+                <textarea   class="form-input"
+                            id="message" 
+                            name="message" 
+                            rows="4" 
+                            cols="30"></textarea>
+                <!-- end the textarea with its label -->
+
+            <button type="submit" class="form-input" >send data</button>
+        </form>
+
+        <h3>Frontend Technologies to Learn:</h3>
+        <ol class="first-ol">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        </ol>
+
+        <ol class="second-ol">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        </ol>
+
+        <h3>Shopping List:</h3>
+        <ul class="first-ul">
+        <li>Milk</li>
+        <li>Bread</li>
+        <li>Eggs</li>
+        </ul>
+
+        <ul class="second-ul">
+        <li>Milk</li>
+        <li>Bread</li>
+        <li>Eggs</li>
+        </ul>
+
+        <table class="log-table" border="1">
+        <thead>
+            <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>1</td>
+            <td>Ahmed</td>
+            <td>Math</td>
+            <td>95</td>
+            </tr>
+            <tr>
+            <td>2</td>
+            <td>Salma</td>
+            <td>Science</td>
+            <td>88</td>
+            </tr>
+            <tr>
+            <td>3</td>
+            <td>sami</td>
+            <td>geography</td>
+            <td>75</td>
+            </tr>
+        </tbody>
+        </table>  
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Intro</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h2 id="greeding">مرحبا </h2>
+        <button onclick="sayWelcome()">Click Me</button>
+
+        <script>
+            function sayWelcome(){
+                document.getElementById("greeding").innerHTML = "مرحبا من جافاسكريبت";
+                document.getElementById("greeding").style.background = "#fff";
+            }
+        </script>
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>JS Input Example</title>
+</head>
+<body>
+<h2>Say Hello</h2>
+<input type="text" id="username" placeholder="Enter your name" />
+<button onclick="sayHello()">Say Hello</button>
+<p id="output"></p>
+<script>
+function sayHello() {
+let name = document.getElementById("username").value;
+document.getElementById("output").innerHTML = "Hello, " + name + "!";
+}
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Input Example</title>
+</head>
+<body>
+  <h2>Say Hello</h2>
+  <input type="text" id="username" placeholder="Enter your name" />
+  <button onclick="sayHello()">اظهر النتيجة</button>
+  <p id="output"></p>
+
+  <script>
+    function sayHello() {
+      let name = document.getElementById("username").value;
+      document.getElementById("output").textContent = "Hello, " + name + "! Your grade is 90%";
+    }
+  </script>
+</body>
+</html>

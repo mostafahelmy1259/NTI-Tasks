@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Task 5</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            background-color: #f0f0f0;
+            }
+            h1 {
+            color: #4a148c;
+            }
+            input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            }
+            .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            font-size: 20px;
+            display: inline-block;
+            min-width: 200px;
+            }
+            .excellent { background-color: #2e7d32; }
+            .verygood { background-color: #388e3c; }
+            .good { background-color: #fbc02d; color: black; }
+            .weak { background-color: #d32f2f; }
+        </style>
+    </head>
+    <body>
+
+        <h1>اسم الطالب: مصطفي حلمي</h1>
+        
+        <label for="grade">ادخل الدرجة (0 إلى 100):</label><br>
+        <input type="number" id="grade" min="0" max="100" required><br>
+        
+        <button onclick="calculateReport()">احسب التقرير</button>
+        
+        <div id="output"></div>
+        
+        <script>
+            function calculateReport() {
+            const grade = parseInt(document.getElementById('grade').value);
+            const outputDiv = document.getElementById('output');
+            
+            let report = "";
+            let cssClass = "";
+            
+            if (isNaN(grade) || grade < 0 || grade > 100) {
+                report = "الرجاء إدخال درجة صحيحة بين 0 و 100";
+                cssClass = "weak";
+            } else if (grade >= 85) {
+                report = "ممتاز";
+                cssClass = "excellent";
+            } else if (grade >= 75) {
+                report = "جيد جدًا";
+                cssClass = "verygood";
+            } else if (grade >= 60) {
+                report = "جيد";
+                cssClass = "good";
+            } else {
+                report = "ضعيف";
+                cssClass = "weak";
+            }
+            
+            outputDiv.innerHTML = `<div class="result ${cssClass}">تقديرك: ${report}</div>`;
+            }
+        </script>
+
+    </body>
+</html>
